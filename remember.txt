@@ -1,0 +1,10 @@
+swift:
+    git submodule add https://github.com/toyamarinyon/vim-swift.git bundle/vim-swift
+swift:
+    git submodule add https://github.com/alderz/smali-vim.git bundle/vim-smali
+yara:
+    git submodule add https://github.com/yaunj/vim-yara.git bundle/vim-yara
+tagbar:
+    git submodule add https://github.com/majutsushi/tagbar.git bundle/vim-tagbar
+ctrlp:
+    git submodule add https://github.com/kien/ctrlp.vim.git bundle-ctrlp

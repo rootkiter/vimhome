@@ -55,35 +55,54 @@ map <space> za
 " 忽略以下文件的显示
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 
-
 " autocmd vimenter * NERDTree
-autocmd BufNewFile *.py,*.sh,*.java exec ":call SetTitle()"
+autocmd BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java exec ":call SetTitle()"
 func SetTitle()
+    let AUTHOR="rootkiter"
+    let EMAIL ="rootkiter@rootkiter.com"
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
         call append(line(".")+0, "\###############################################")
         call append(line(".")+1, "\# File Name : ".expand("%"))
-        call append(line(".")+2, "\#    Author : rootkiter")
-        call append(line(".")+3, "\#    E-mail : rootkiter@rootkiter.com")
+        call append(line(".")+2, "\#    Author : ".AUTHOR)
+        call append(line(".")+3, "\#    E-mail : ".EMAIL)
         call append(line(".")+4, "\#   Created : ".strftime("%c"))
         call append(line(".")+5, "\###############################################")
         call append(line(".")+6, "")
+        call append(line(".")+7, "echo \$#")
     elseif &filetype == 'python'
         call setline(1, "\#!/bin/python")
         call append(line(".")+0, "\###############################################")
         call append(line(".")+1, "\# File Name : ".expand("%"))
-        call append(line(".")+2, "\#    Author : rootkiter")
-        call append(line(".")+3, "\#    E-mail : rootkiter@rootkiter.com")
+        call append(line(".")+2, "\#    Author : ".AUTHOR)
+        call append(line(".")+3, "\#    E-mail : ".EMAIL)
         call append(line(".")+4, "\#   Created : ".strftime("%c"))
         call append(line(".")+5, "\###############################################")
         call append(line(".")+6, "")
+        call append(line(".")+7 , "import sys")
+        call append(line(".")+8 , "if __name__=='__main__':")
+        call append(line(".")+9 , "    print \"Hello World ! \"")
+        call append(line(".")+10, "    print sys.argv")
+    elseif &filetype == 'c'
+        call setline(1          , "\/** ***********************************************")
+        call append(line(".")   , " * File Name :".expand("%"))
+        call append(line(".")+ 1, " * Author: ".AUTHOR)
+        call append(line(".")+ 2, " * E-mail: ".EMAIL)
+        call append(line(".")+ 3, " * Created Time : ".strftime("%c"))
+        call append(line(".")+ 4, "************************************************* */")
+        call append(line(".")+ 5, "")
+        call append(line(".")+ 6, "#include <stdio.h>")
+        call append(line(".")+ 7, "int main(){")
+        call append(line(".")+ 8, "    printf(\"Hello World\\n\");")
+        call append(line(".")+ 9, "    return 1;")
+        call append(line(".")+10, "}")
     else
-        call setline(1,"/**")
-        call append(line("."), "* File Name :".expand("%"))
-        call append(line(".")+1, "* Author: rootkiter")
-        call append(line(".")+2, "* E-mail: rootkiter@rootkiter.com")
-        call append(line(".")+3, "* Created Time : ".strftime("%c"))
-        call append(line(".")+4, "*/")
+        call setline(1         , "\/** ***********************************************")
+        call append(line(".")  , " * File Name :".expand("%"))
+        call append(line(".")+1, " * Author: ".AUTHOR)
+        call append(line(".")+2, " * E-mail: ".EMAIL)
+        call append(line(".")+3, " * Created Time : ".strftime("%c"))
+        call append(line(".")+4, "************************************************* */")
     endif
     normal G
 endfunc
