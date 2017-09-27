@@ -56,7 +56,7 @@ map <space> za
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 
 " autocmd vimenter * NERDTree
-autocmd BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java exec ":call SetTitle()"
+autocmd BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java,*.go exec ":call SetTitle()"
 func SetTitle()
     let AUTHOR="rootkiter"
     let EMAIL ="rootkiter@rootkiter.com"
@@ -97,6 +97,26 @@ func SetTitle()
         call append(line(".")+ 8, "    printf(\"Hello World\\n\");")
         call append(line(".")+ 9, "    return 1;")
         call append(line(".")+10, "}")
+    elseif &filetype == 'go'
+        call setline(1          , "\/** ***********************************************")
+        call append(line(".")   , " * File Name : ".expand("%"))
+        call append(line(".")+ 1, " * Author    : ".AUTHOR)
+        call append(line(".")+ 2, " * E-mail    : ".EMAIL)
+        call append(line(".")+ 3, " * Created   : ".TIMENOW)
+        call append(line(".")+ 4, "************************************************* */")
+        call append(line(".")+ 5, "")
+        call append(line(".")+ 6, "package main")
+        call append(line(".")+ 7, "import (")
+        call append(line(".")+ 8, "        \"os\"")
+        call append(line(".")+ 9, "        \"fmt\"")
+        call append(line(".")+10, ")")
+        call append(line(".")+11, "")
+        call append(line(".")+12, "func main() {")
+        call append(line(".")+13, "    args := os.Args")
+        call append(line(".")+14, "    fmt.Printf(\"%s\\n\",\"Hello, World!\")")
+        call append(line(".")+15, "    fmt.Println(len(args))")
+        call append(line(".")+16, "    fmt.Println(args)")
+        call append(line(".")+17, "}")
     else
         call setline(1         , "\/** ***********************************************")
         call append(line(".")   , " * File Name : ".expand("%"))
