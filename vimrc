@@ -56,15 +56,17 @@ map <space> za
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 
 " autocmd vimenter * NERDTree
+au BufRead,BufNewFile *.h        set filetype=h
 autocmd BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java,*.go exec ":call SetTitle()"
 func SetTitle()
+    let FILENAME=expand("%")
     let AUTHOR="rootkiter"
     let EMAIL ="rootkiter@rootkiter.com"
     let TIMENOW=strftime("%Y-%m-%d %T %Z")
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
         call append(line(".")+ 0, "\###############################################")
-        call append(line(".")+ 1, "\# File Name : ".expand("%"))
+        call append(line(".")+ 1, "\# File Name : ".FILENAME)
         call append(line(".")+ 2, "\#    Author : ".AUTHOR)
         call append(line(".")+ 3, "\#    E-mail : ".EMAIL)
         call append(line(".")+ 4, "\#   Created : ".TIMENOW)
@@ -74,7 +76,7 @@ func SetTitle()
     elseif &filetype == 'python'
         call setline(1, "\#!/bin/python")
         call append(line(".")+ 0, "\###############################################")
-        call append(line(".")+ 1, "\# File Name : ".expand("%"))
+        call append(line(".")+ 1, "\# File Name : ".FILENAME)
         call append(line(".")+ 2, "\#    Author : ".AUTHOR)
         call append(line(".")+ 3, "\#    E-mail : ".EMAIL)
         call append(line(".")+ 4, "\#   Created : ".TIMENOW)
@@ -86,7 +88,7 @@ func SetTitle()
         call append(line(".")+10, "    print sys.argv")
     elseif &filetype == 'c'
         call setline(1          , "\/** ***********************************************")
-        call append(line(".")   , " * File Name : ".expand("%"))
+        call append(line(".")   , " * File Name : ".FILENAME)
         call append(line(".")+ 1, " * Author    : ".AUTHOR)
         call append(line(".")+ 2, " * E-mail    : ".EMAIL)
         call append(line(".")+ 3, " * Created   : ".TIMENOW)
@@ -99,7 +101,7 @@ func SetTitle()
         call append(line(".")+10, "}")
     elseif &filetype == 'go'
         call setline(1          , "\/** ***********************************************")
-        call append(line(".")   , " * File Name : ".expand("%"))
+        call append(line(".")   , " * File Name : ".FILENAME)
         call append(line(".")+ 1, " * Author    : ".AUTHOR)
         call append(line(".")+ 2, " * E-mail    : ".EMAIL)
         call append(line(".")+ 3, " * Created   : ".TIMENOW)
@@ -117,9 +119,24 @@ func SetTitle()
         call append(line(".")+15, "    fmt.Println(len(args))")
         call append(line(".")+16, "    fmt.Println(args)")
         call append(line(".")+17, "}")
+    elseif &filetype == 'h'
+        let DEFINE_MIC ="_".toupper(expand('%:t:r'))."_H_"
+        call setline(1          , "\/** ***********************************************")
+        call append(line(".")   , " * File Name : ".FILENAME)
+        call append(line(".")+ 1, " * Author    : ".AUTHOR)
+        call append(line(".")+ 2, " * E-mail    : ".EMAIL)
+        call append(line(".")+ 3, " * Created   : ".TIMENOW)
+        call append(line(".")+ 4, "************************************************* */")
+        call append(line(".")+ 5, "")
+        call append(line(".")+ 6, "#ifndef ".DEFINE_MIC)
+        call append(line(".")+ 7, "#define ".DEFINE_MIC)
+        call append(line(".")+ 8, "")
+        call append(line(".")+ 9, "")
+        call append(line(".")+10, "#endif //".DEFINE_MIC)
+        set filetype=cpp
     else
         call setline(1         , "\/** ***********************************************")
-        call append(line(".")   , " * File Name : ".expand("%"))
+        call append(line(".")   , " * File Name : ".FILENAME)
         call append(line(".")+ 1, " * Author    : ".AUTHOR)
         call append(line(".")+ 2, " * E-mail    : ".EMAIL)
         call append(line(".")+ 3, " * Created   : ".TIMENOW)
