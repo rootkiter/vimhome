@@ -56,8 +56,8 @@ map <space> za
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 
 " autocmd vimenter * NERDTree
-au BufRead,BufNewFile *.h        set filetype=h
-autocmd BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java,*.go exec ":call SetTitle()"
+au BufNewFile *.h        set filetype=h
+au BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java,*.go exec ":call SetTitle()"
 func SetTitle()
     let FILENAME=expand("%")
     let AUTHOR="rootkiter"
