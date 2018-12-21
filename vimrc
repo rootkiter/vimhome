@@ -23,31 +23,36 @@ let maplocalleader=","
 
     " 关联NERDTree 快捷键
     map <Leader>, :NERDTreeToggle<cr>
-    " 保存退出快捷键
-    map <Leader>w :wq<cr>
+    " 以root身份保存当前修改
+    map <Leader>w :w !sudo tee %<cr>
     " 直接退出
     map <Leader>q :q<cr>
-    " 以root身份保存当前修改
-    map <Leader>W :w !sudo tee %<cr>
     " 打开TagBar窗口
     nmap <Leader>. :TagbarToggle<cr>
     " 搜索当前单词(高亮状态下效果最佳)
     map <Leader>/ /<C-r><C-w><cr>
     " 随时编辑vimrc
-    map <Leader>ee :e ~/.vimrc<cr>
+    map <Leader>ee :e ~/.vim/vimrc<cr>
     autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" 在窗口中快速跳转
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" 分屏相关
+    " 窗口切换
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+    " 这里换掉了两个系统自带的快捷键
+    " <C-k> 特殊字符输入 :help graph-table
+    " <C-l> 屏幕刷新
+    " 用新的快捷键重写上述功能
+    noremap <C-m> <C-l>
+    noremap <C-p> <C-k>
 
-" 调整窗口大小
-map <C-y> <C-W><
-map <C-u> <C-W>+
-map <C-i> <C-W>-
-map <C-o> <C-W>>
+    " 调整窗口大小
+    " map <C-y> <C-W><
+    " map <C-u> <C-W>+
+    " map <C-i> <C-W>-
+    " map <C-o> <C-W>>
 
 map <space> za
 
