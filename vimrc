@@ -4,7 +4,7 @@ filetype plugin indent on
 set number
 syntax on
 " 设置粘贴模式，以免拷贝代码时出现格式混乱
-set paste
+" set paste
 
 set ts=4
 set shiftwidth=4
