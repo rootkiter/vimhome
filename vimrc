@@ -26,6 +26,8 @@ set backspace=indent,eol,start
 " 设置私有指令前缀
 let mapleader=","
 let maplocalleader=","
+" 交换 <Leader> 和 ,
+nmap \ ,
 
     " 关联NERDTree 快捷键
     map <Leader>, :NERDTreeToggle<cr>
