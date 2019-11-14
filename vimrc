@@ -14,8 +14,14 @@ set hlsearch
 " 在输入搜索内容时自动匹配
 set incsearch
 
+" 空行无折行
+set noendofline
+
+" 约定 backspace 生效范围
+set backspace=indent,eol,start
+
 " 设置折叠模式
-set foldmethod=indent
+" set foldmethod=indent
 
 " 设置私有指令前缀
 let mapleader=","
@@ -53,8 +59,6 @@ let maplocalleader=","
     " map <C-u> <C-W>+
     " map <C-i> <C-W>-
     " map <C-o> <C-W>>
-
-map <space> za
 
 " NERDTree 相关
 " 忽略以下文件的显示
