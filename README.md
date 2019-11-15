@@ -15,18 +15,22 @@
 
 ## Install
 
-先将已存在的 ~/.vim 配置备份到 ~/vim\_oldrc 中，随后从 github 同步具体配置到 ~/.vim
+先将已存在的 ~/.vim 配置备份到 ~/vim\_oldrc 中，随后从 github 同步具体配置到 ~/.vim。
+
+为便于记忆，我将安装脚本已经放置于个人域名之下。
 
 ```
-    $ curl https://raw.githubusercontent.com/rootkiter/vimhome/master/tools/install.sh | bash
+    $ curl http://rootkiter.com/vimhome/install.sh | bash
 ```
 
 ## Uninstall
 
 清除当前 ~/.vim 内容，再从 ~/vim\_oldrc 还原历史的配置。实现恢复。
 
+为便于记忆，我将卸载脚本已经放置于个人域名之下。
+
 ```
-    $ curl https://raw.githubusercontent.com/rootkiter/vimhome/master/tools/uninstall.sh | bash
+    $ curl http://rootkiter.com/vimhome/uninstall.sh | bash
 ```
 
 # 上手帮助 (Help)
