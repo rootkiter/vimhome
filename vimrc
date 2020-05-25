@@ -2,6 +2,7 @@ execute pathogen#infect()
 filetype plugin indent on
 " 开行号模式
 set number
+set relativenumber
 syntax on
 " 设置粘贴模式，以免拷贝代码时出现格式混乱
 " set paste
