@@ -9,6 +9,8 @@ syntax on
 
 set ts=4
 set shiftwidth=4
+set cc=81
+hi ColorColumn ctermbg=grey guibg=grey
 set expandtab
 " 高亮搜索结果
 set hlsearch
