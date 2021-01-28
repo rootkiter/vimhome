@@ -10,7 +10,7 @@ syntax on
 set ts=4
 set shiftwidth=4
 set cc=81
-hi ColorColumn ctermbg=grey guibg=grey
+hi ColorColumn ctermbg=22 guibg=grey
 set expandtab
 " 高亮搜索结果
 set hlsearch
@@ -68,6 +68,9 @@ nmap \ ,
 " NERDTree 相关
 " 忽略以下文件的显示
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+let NERDTreeShowLineNumbers=1
+let NERDTreeDirArrowExpandable='+'
+let NERDTreeDirArrowCollapsible='-'
 
 " autocmd vimenter * NERDTree
 au BufNewFile *.h        set filetype=h
