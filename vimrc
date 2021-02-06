@@ -57,7 +57,7 @@ nmap \ ,
     nmap <C-m> <C-l>
     nmap <C-p> <C-k>
 
-    cmap <C-p> <C-r><C-w>
+cmap <C-p> <C-r><C-w>
     " 调整窗口大小
     " map <C-y> <C-W><
     " map <C-u> <C-W>+
@@ -69,8 +69,7 @@ nmap \ ,
 " cscope {
 if filereadable("cscope.out")
     cs add cscope.out
-    nmap <Leader>c :cs find
-    nmap <C-]> :cs find g <C-r><C-w><cr>
+    nmap <Leader>c :cs find g <C-r><C-w><S-Left><S-Left><S-Right>
 else
     nmap <Leader>c :echom "$ cscope -Rbq"
 endif
