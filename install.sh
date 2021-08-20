@@ -17,8 +17,13 @@ test -f ~/.vimrc && \
 #install my dir
 git clone https://github.com/rootkiter/vimhome.git ~/.vim && \
     cd ~/.vim/ && \
-    echo -e "\n\n-> Tips <--- Synchronizing [Nerdtree] and [Powerline] plug-ins...\n" && \
-    git submodule init && \
-    git submodule update
+    echo -e "\n\n-> Tips <--- Synchronizing [Nerdtree] and [Powerline] plug-ins...\n"
+
+git clone https://github.com/preservim/nerdtree.git ./bundle/nerdtree && \
+    cd ./bundle/nerdtree && git checkout e671e403dd1ec1da59f70605c73aaedb6cb0e637 && cd ~/.vim/
+
+git clone https://github.com/Lokaltog/vim-powerline.git ./bundle/vim-powerline && \
+    cd ./bundle/vim-powerline && git checkout 09c0cea859a2e0989eea740655b35976d951a84e && cd ~/.vim/
+
 
 echo -e "\n\n-> Tips <--- Done. Help your self.\n"
