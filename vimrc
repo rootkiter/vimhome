@@ -7,6 +7,8 @@ syntax on
 " 设置粘贴模式，以免拷贝代码时出现格式混乱
 " set paste
 
+set wrap
+
 set ts=4
 set shiftwidth=4
 set cc=81
@@ -43,6 +45,7 @@ nmap \ ,
     map <Leader>ee :e ~/.vim/vimrc<cr>
     autocmd! bufwritepost .vimrc source ~/.vimrc
 
+    map R :source $MYVIMRC<cr>
 
 " 分屏相关
     " 窗口切换
