@@ -85,6 +85,11 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeDirArrowExpandable='+'
 let NERDTreeDirArrowCollapsible='-'
 
+" 行尾空格提示
+highlight bg_alert_color ctermbg=Brown
+syn match line_tail_space " *$"
+hi link line_tail_space bg_alert_color
+
 " autocmd vimenter * NERDTree
 au BufNewFile *.h        set filetype=h
 au BufNewFile *.py,*.[ch],*.cpp,*.sh,*.java,*.go exec ":call SetTitle()"
