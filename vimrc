@@ -12,12 +12,14 @@ set wrap
 set ts=4
 set shiftwidth=4
 set cc=81
-hi ColorColumn ctermbg=22 guibg=grey
 set expandtab
 " 高亮搜索结果
 set hlsearch
 " 在输入搜索内容时自动匹配
 set incsearch
+
+colorscheme desert
+hi ColorColumn ctermbg=22 guibg=grey
 
 " 空行无折行
 set noendofline
