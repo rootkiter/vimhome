@@ -203,7 +203,7 @@ nmap <Leader>. :call MyTagbar_Toggle()<cr>
 
 func MyTagbar_Toggle()
     if exists(":TagbarToggle") == 0
-        echom "$ brew install tagbar"
+        echom "$ brew install ctags-exuberant"
         echom "$ git submodule add https://github.com/majutsushi/tagbar.git bundle/vim-tagbar"
     else
         TagbarToggle
